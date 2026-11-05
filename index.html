@@ -1,0 +1,84 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+    <p class="eyebrow">TAIPEI FOOD NOTES</p>
+    <h1>把喜歡的味道，好好收藏。</h1>
+    <p>不知道今天吃什麼？從口袋名單尋找美食吧！</p>
+    <p>目前顯示 {{ total }} 間餐廳</p>
+</section>
+
+<section class="filter-box">
+
+    <form method="GET" action="{{ url_for('index') }}">
+
+        <select name="district">
+            <option value="">所有行政區</option>
+            {% for district in districts %}
+                <option value="{{ district }}"
+                    {% if selected_district == district %}selected{% endif %}>
+                    {{ district }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <select name="cuisine">
+            <option value="">所有料理風格</option>
+            {% for cuisine in cuisines %}
+                <option value="{{ cuisine }}"
+                    {% if selected_cuisine == cuisine %}selected{% endif %}>
+                    {{ cuisine }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">篩選餐廳</button>
+
+        <button type="submit"
+                formaction="{{ url_for('random_restaurant') }}">
+            幫我隨機選一家 ♡
+        </button>
+
+    </form>
+
+</section>
+
+{% for district, restaurants in grouped.items() %}
+
+<section class="district-section">
+
+    <h2>{{ district }}</h2>
+
+    <div class="restaurant-grid">
+
+    {% for restaurant in restaurants %}
+
+        <a class="restaurant-card"
+           href="{{ url_for('detail', id=restaurant.id) }}">
+
+            <span class="cuisine">{{ restaurant.cuisine }}</span>
+            <h3>{{ restaurant.name }}</h3>
+            <p>{{ restaurant.note }}</p>
+            <span class="view-detail">查看詳細資訊 →</span>
+
+        </a>
+
+    {% endfor %}
+
+    </div>
+
+</section>
+
+{% endfor %}
+
+{% if total == 0 %}
+<div class="empty-state">
+    <h2>目前還沒有符合條件的餐廳</h2>
+    <p>可以新增第一間餐廳，或調整篩選條件。</p>
+    <a class="add-button" href="{{ url_for('add') }}">＋ 新增餐廳</a>
+</div>
+{% endif %}
+
+{% endblock %}

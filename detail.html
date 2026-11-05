@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="detail-page">
+
+    <a class="back-link" href="{{ url_for('index') }}">
+        ← 返回餐廳清單
+    </a>
+
+    <div class="detail-card">
+
+        <span class="cuisine">{{ restaurant.cuisine }}</span>
+
+        <h1>{{ restaurant.name }}</h1>
+
+        <h3>所在行政區</h3>
+        <p>台北市{{ restaurant.district }}</p>
+
+        <h3>餐點風格</h3>
+        <p>{{ restaurant.cuisine }}</p>
+
+        <h3>推薦餐點／用餐心得</h3>
+        <p>{{ restaurant.note }}</p>
+
+        <div class="action-row">
+
+            <a class="back-button" href="{{ url_for('index') }}">
+                返回列表
+            </a>
+
+            <a class="add-button"
+               href="{{ url_for('edit', id=restaurant.id) }}">
+                編輯餐廳
+            </a>
+
+            <form method="POST"
+                  action="{{ url_for('delete', id=restaurant.id) }}"
+                  onsubmit="return confirm('確定要刪除這間餐廳嗎？');">
+
+                <button type="submit" class="delete-button">
+                    刪除餐廳
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

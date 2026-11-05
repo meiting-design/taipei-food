@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃哪家？</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="{{ url_for('index') }}">今天吃哪家？</a>
+        <a class="add-button" href="{{ url_for('add') }}">＋ 新增餐廳</a>
+    </div>
+</header>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    台北餐廳口袋名單 ♡ 收藏每一份美味
+</footer>
+
+</body>
+</html>

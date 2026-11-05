@@ -1,0 +1,353 @@
+
+/* ===== 網站整體設定 ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    background-color: #FCF7F2;
+    color: #503A33;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+
+/* ===== 網站上方導覽列 ===== */
+
+.site-header {
+    background-color: #FFFDFB;
+    border-bottom: 1px solid #EBDDD3;
+    padding: 20px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 27px;
+    font-weight: bold;
+    color: #944D3F;
+}
+
+
+/* ===== 首頁介紹區 ===== */
+
+.hero {
+    text-align: center;
+    padding: 65px 15px 45px;
+}
+
+.eyebrow {
+    color: #B9775F;
+    letter-spacing: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #743F34;
+    margin: 15px 0;
+}
+
+.hero p {
+    color: #80695F;
+}
+
+
+/* ===== 行政區篩選區 ===== */
+
+.filter-box {
+    background: #FFFDFB;
+    border: 1px solid #EAD8CC;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 45px;
+}
+
+.filter-box form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-box select,
+.filter-box button {
+    padding: 12px 16px;
+    border-radius: 9px;
+    border: 1px solid #DDC7BA;
+    font-size: 16px;
+}
+
+.filter-box button {
+    background: #A75A46;
+    color: white;
+    cursor: pointer;
+}
+
+.filter-box button:hover {
+    background: #85402F;
+}
+
+
+/* ===== 行政區分類 ===== */
+
+.district-section {
+    margin-bottom: 50px;
+}
+
+.district-section h2 {
+    font-size: 27px;
+    color: #82483B;
+    border-bottom: 2px solid #E7D0C1;
+    padding-bottom: 10px;
+}
+
+
+/* ===== 餐廳卡片 ===== */
+
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.restaurant-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: #FFFFFF;
+    border: 1px solid #F0E5DC;
+    border-radius: 17px;
+    padding: 27px;
+    box-shadow: 0 5px 16px rgba(100, 55, 40, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 9px 22px rgba(100, 55, 40, 0.12);
+}
+
+.cuisine {
+    display: inline-block;
+    background: #F4E2D6;
+    color: #9B5645;
+    border-radius: 25px;
+    padding: 5px 14px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.restaurant-card h3 {
+    font-size: 24px;
+    color: #633D34;
+    margin: 15px 0 8px;
+}
+
+.restaurant-card p {
+    color: #74645D;
+    font-size: 17px;
+}
+
+.view-detail {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #B35E48;
+}
+
+
+/* ===== 新增餐廳按鈕 ===== */
+
+.add-button,
+.save-button {
+    display: inline-block;
+    background: #A75A46;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.add-button:hover,
+.save-button:hover {
+    background: #85402F;
+}
+
+
+/* ===== 餐廳詳細頁 ===== */
+
+.detail-page {
+    max-width: 750px;
+    margin: 50px auto;
+}
+
+.back-link {
+    color: #A75B49;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.detail-card {
+    background: white;
+    padding: 45px;
+    border-radius: 20px;
+    margin-top: 25px;
+    border: 1px solid #F0E2D9;
+}
+
+.detail-card h1 {
+    color: #743F34;
+    font-size: 36px;
+}
+
+.detail-card h3 {
+    color: #9E5542;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.detail-card p {
+    margin-top: 0;
+}
+
+.back-button {
+    display: inline-block;
+    background: #A75A46;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.back-button:hover {
+    background: #85402F;
+}
+
+
+/* ===== 新增、編輯餐廳表單 ===== */
+
+.restaurant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.restaurant-form label {
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.restaurant-form input,
+.restaurant-form select,
+.restaurant-form textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #DCC6B8;
+    border-radius: 9px;
+    font-size: 17px;
+    font-family: inherit;
+}
+
+.restaurant-form input:focus,
+.restaurant-form textarea:focus,
+.restaurant-form select:focus {
+    outline: 2px solid #C9957E;
+}
+
+
+/* ===== 詳細頁操作按鈕 ===== */
+
+.action-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.delete-button {
+    background: #B54B4B;
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: #8F3030;
+}
+
+
+/* ===== 空白餐廳清單 ===== */
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+
+/* ===== 頁尾 ===== */
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    color: #947C70;
+    font-size: 15px;
+}
+
+
+/* ===== 手機版排版 ===== */
+
+@media (max-width: 650px) {
+
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .detail-card {
+        padding: 25px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .filter-box form {
+        flex-direction: column;
+    }
+
+    .filter-box select,
+    .filter-box button {
+        width: 100%;
+    }
+}

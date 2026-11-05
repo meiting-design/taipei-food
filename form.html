@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="detail-page">
+
+    <a class="back-link" href="{{ url_for('index') }}">
+        ← 返回餐廳清單
+    </a>
+
+    <div class="detail-card">
+
+        {% if restaurant %}
+            <h1>編輯餐廳</h1>
+        {% else %}
+            <h1>新增餐廳 ♡</h1>
+        {% endif %}
+
+        <form method="POST" class="restaurant-form">
+
+            <label>餐廳名稱</label>
+            <input type="text" name="name" required
+                   value="{{ restaurant.name if restaurant else '' }}"
+                   placeholder="輸入餐廳名稱">
+
+            <label>餐點風格</label>
+            <input type="text" name="cuisine" required
+                   value="{{ restaurant.cuisine if restaurant else '' }}"
+                   placeholder="例如：義式料理、火鍋、甜點">
+
+            <label>台北市行政區</label>
+            <select name="district" required>
+                {% for district in districts %}
+                    <option value="{{ district }}"
+                        {% if restaurant and restaurant.district == district %}
+                            selected
+                        {% endif %}>
+                        {{ district }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <label>推薦餐點／用餐心得</label>
+            <textarea name="note" rows="5" required
+                      placeholder="記錄你喜歡的餐點或心得">{{ restaurant.note if restaurant else '' }}</textarea>
+
+            <button type="submit" class="save-button">
+                儲存餐廳
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% endblock %}
